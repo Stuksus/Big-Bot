@@ -13,12 +13,12 @@ def write_msg(session, user_id, message, repost, attachment='0'):  # Write messa
         session.method('messages.send', {'peer_id': user_id, 'random_id': rand, 'message': str(message)})
 
 
-def auth(token="b10e4f12116517df29eafb4d48d43c5ccf38b1843cca88fb8a70855b69e52335b78db515d62968045335e",
+def auth(token="65c856a653aab7ca74d7d59dd861cbc5384a20c3e0e632b2e86e063aecf65b9ae728a0e36b1985a5394ca",
          scope="manage"):  # Auth like group
     return vk_api.VkApi(token=token, scope=scope)
 
 
-def get_long_loll(session, id_group=186392580):  # create or update LongPoll server
+def get_long_loll(session, id_group=191239236):  # create or update LongPoll server
     return session.method("groups.getLongPollServer", {"group_id": id_group})
 
 
@@ -52,11 +52,11 @@ while True:
                     if updates[0]['object']['attachments']:
                         if updates[0]['object']['attachments'][0]['type'] == 'wall':
                             write_msg(vk, from_id, "Хей, привет, начинаю обработку", False)
-                            if updates[0]['object']['attachments'][0]['wall']['from_id'] == -186392580:
+                            if updates[0]['object']['attachments'][0]['wall']['from_id'] == -191239236:
                                 id_post = updates[0]['object']['attachments'][0]['wall']['id']
-                                total = 'wall-186392580_' + str(id_post)
+                                total = 'wall-191239236_' + str(id_post)
                                 write_msg(vk, from_id, 'Отправляю', False)
-                                ids = get_members_of_group(vk, 186392580)['items']
+                                ids = get_members_of_group(vk, 191239236)['items']
                                 for i in ids:
                                     write_msg(vk, i, '', True, total)
                             else:
