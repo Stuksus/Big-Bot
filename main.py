@@ -39,7 +39,7 @@ def up(poll):
     return response, []
 
 
-admin_ids = [163298402]
+admin_ids = [163298402, 344128222, 170470556, 96140795, 221060898, 363721185]
 while True:
     try:
         vk = auth()
@@ -67,4 +67,5 @@ while True:
 
             long_poll['ts'] = res['ts']
     except:
-        pass
+        var = traceback.format_exc()
+        print(var)
