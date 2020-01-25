@@ -67,6 +67,4 @@ while True:
 
             long_poll['ts'] = res['ts']
     except:
-        vk2 = auth()
-        var = traceback.format_exc()
-        write_msg(vk2, admin_ids[0], var, False)
+        pass
