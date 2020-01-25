@@ -58,7 +58,12 @@ while True:
                                 write_msg(vk, from_id, 'Отправляю', False)
                                 ids = get_members_of_group(vk, 191239236)['items']
                                 for i in ids:
-                                    write_msg(vk, i, '', True, total)
+                                    try:
+                                        write_msg(vk, i, '', True, total)
+                                    except:
+                                        error = traceback.format_exc()
+                                        print('INNER ERROR', error)
+
                             else:
                                 write_msg(vk, from_id, 'Фу, он не из нашей группы? Убери эту гадость! И попробуй снова',
                                           False)
