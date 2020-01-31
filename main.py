@@ -40,6 +40,7 @@ def up(poll):
 
 
 admin_ids = [163298402, 344128222, 170470556, 96140795, 221060898, 363721185]
+starter_message = []
 while True:
     try:
         vk = auth()
@@ -47,6 +48,10 @@ while True:
         while True:
             res, updates = up(long_poll)
             if updates and updates[0]['type'] == 'message_new':
+                if not (updates[0]['object']['from_id'] in starter_message):
+                    write_msg(vk, updates[0]['object']['from_id'],
+                              "Свадьба пела и гармонь играла! Рады, что ты с нами!", False)
+                    starter_message.append(updates[0]['object']['from_id'])
                 if updates[0]['object']['from_id'] in admin_ids:
                     from_id = updates[0]['object']['from_id']
                     if updates[0]['object']['attachments']:
