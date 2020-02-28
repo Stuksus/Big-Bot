@@ -13,7 +13,7 @@ def write_msg(session, user_id, message, repost, attachment='0'):  # Write messa
         session.method('messages.send', {'peer_id': user_id, 'random_id': rand, 'message': str(message)})
 
 
-def auth(token="65c856a653aab7ca74d7d59dd861cbc5384a20c3e0e632b2e86e063aecf65b9ae728a0e36b1985a5394ca",
+def auth(token="token' #need token
          scope="manage"):  # Auth like group
     return vk_api.VkApi(token=token, scope=scope)
 
